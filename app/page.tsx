@@ -45,7 +45,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs 풀리퀘스트 수정
+            Read our docs codecov.yml 없을때
           </a>
         </div>
       </main>
