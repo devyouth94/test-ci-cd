@@ -6,13 +6,20 @@ orbs:
   # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@3
 
-workflows:
-  build:
-    jobs:
-      - cypress/run:
-          executor:
-            name: cypress/default
-            node-version: 18.18.0
+    run-cypress-in-specified-node-version:
+    executor:
+      name: cypress/default
+      node-version: '20.6'
+    steps:
+      - cypress/install:
+          package-manager: npm
+      - cypress/run-tests:
           cypress-command: "npx wait-on@latest http://localhost:3000 && npx cypress run --browser chrome"
           install-browsers: true
           start-command: "npm run build && npm run start"
+
+workflows:
+  build:
+    jobs:
+      - run-cypress-in-specified-node-version:
+          name: Run Cypress in specified Node.js version
