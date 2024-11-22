@@ -6,10 +6,11 @@ orbs:
   # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@3
 
-    run-cypress-in-specified-node-version:
+jobs:
+  run-cypress-in-specified-node-version:
     executor:
       name: cypress/default
-      node-version: '20.6'
+      node-version: "20.6"
     steps:
       - cypress/install:
           package-manager: npm
