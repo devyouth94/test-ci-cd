@@ -45,7 +45,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs cypress 설정
+            Read our docs cypress 설정234
           </a>
         </div>
       </main>
