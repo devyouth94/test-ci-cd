@@ -5,8 +5,17 @@ orbs:
   # the strict explicit version "cypress-io/cypress@3.x.y"
   # to lock the version and prevent unexpected CI changes
   cypress: cypress-io/cypress@3
+
+executors:
+  node:
+    docker:
+      - image: circleci/node:18.18.0
+
 workflows:
   build:
     jobs:
       - cypress/run: # "run" job comes from "cypress" orb
-          start-command: "npm run start"
+          executor: node
+          start-command: "npm run build && npm run start"
+          wait-on: "http://localhost:3000"
+          run-command: "npx cypress run"
