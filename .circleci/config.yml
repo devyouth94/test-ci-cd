@@ -14,8 +14,6 @@ workflows:
             name: cypress/default
             node-version: "18.18.0"
           steps:
-            - cypress/install:
-                package-manager: npm
             - cypress/run:
-                cypress-command: npx wait-on@latest http://localhost:3000 && npx cypress run
-                start-command: npm run build && npm run start
+                cypress-command: "npx wait-on@latest http://localhost:3000 && npx cypress run"
+                start-command: "npm run build && npm run start"
