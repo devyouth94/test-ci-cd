@@ -45,7 +45,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs codecov.yml 없을때
+            Read our docs cypress 설정
           </a>
         </div>
       </main>
