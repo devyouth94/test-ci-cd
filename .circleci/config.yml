@@ -17,6 +17,9 @@ jobs:
       - cypress/run-tests:
           cypress-command: npx cypress run
           start-command: npm run dev
+      - cypress/run:
+          cypress-command: "npx wait-on@latest http://localhost:3000 && npx cypress run"
+          start-command: "npm run build && npm run start"
 
 # workflows:
 #   build:
@@ -33,6 +36,3 @@ workflows:
     jobs:
       - run-cypress-in-specified-node-version:
           name: run Cypress in specified Node.js version
-      - cypress/run:
-          cypress-command: "npx wait-on@latest http://localhost:3000 && npx cypress run"
-          start-command: "npm run build && npm run start"
